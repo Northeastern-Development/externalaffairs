@@ -7,17 +7,32 @@
 nav.mainnav{
   position: absolute;
   right: 0;
-  top: (nth($header-height,2) - (nth($gutter,2) * 2));
+  top: 0;
+  height: nth($header-height,2);
   & > div.mobilenav{
     display: none;
     float: right;
-    width: auto;
-    background: red;
+    width: 100%;
+    // background: red;
+    color: rgba($brand_colors-white,0.6);
+    text-align: right;
+    height: nth($header-height,2);
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: nth($header-height,2);
+    &:hover,
+    &:focus,
+    &:active{
+      color: rgba($brand_colors-white,1.0);
+    }
   }
   & ul{
     list-style: none;
     list-style-type: none;
+    height: 100%;
     & > li{
+      height: 100%;
       display: inline-block;
       margin: 0 0 0 nth($gutter,1);
       &:first-child{
@@ -25,7 +40,10 @@ nav.mainnav{
       }
       & > a{
         color: rgba($brand_colors-white,0.6);
-        @include font-2r-l;
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        line-height: nth($header-height,2);
         &:hover,
         &:focus{
           color: rgba($brand_colors-white,1.0);
@@ -44,17 +62,42 @@ nav.mainnav{
 
 
   @media only screen and (max-width: 1080px){
+    height: auto;
     & > div.mobilenav{
       display: block;
     }
 
     & ul{
       clear: both;
-      background: rgba($brand_colors-black,1.0);
+      height: auto;
+      background: rgba(31, 31, 31, 1.0);
+      border-right: solid rgba($brand_colors-grayW, 1.0) 1px;
+      border-bottom: solid rgba($brand_colors-grayW, 1.0) 1px;
+      border-left: solid rgba($brand_colors-grayW, 1.0) 1px;
       & > li{
         display: block;
         margin: 0 0 0 0;
-        padding: 0 nth($gutter,1) 0 nth($gutter,1);
+
+        border-bottom: solid rgba($brand_colors-grayW, 1.0) 1px;
+        height: 50px;
+        & > a{
+          padding: 0 nth($gutter,1) 0 nth($gutter,1);
+          height: 50px;
+          line-height: 50px;
+          width: 100%;
+          display: block;
+          &:hover,
+          &:focus,
+          &:active{
+            outline: 0;
+            color: rgba($brand_colors-black, 1.0);
+            cursor: pointer;
+            background: rgba($brand_colors-beige, 1.0);
+          }
+        }
+        &:last-child{
+          border: none;
+        }
       }
     }
   }

@@ -123,8 +123,14 @@ add_filter( 'script_loader_src', '_remove_script_version', 15, 1 ); // Removes s
 add_filter( 'style_loader_src', '_remove_script_version', 15, 1 ); // Removes scripts version number from style tags
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+
+// these are items for customizing the login page
+add_action('login_head', 'my_custom_login');
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+add_filter('login_errors', 'login_error_override');
+add_action('login_head', 'my_login_head');
+add_action( 'init', 'login_checked_remember_me' );
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
