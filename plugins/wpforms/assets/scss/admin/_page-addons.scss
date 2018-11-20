@@ -17,6 +17,25 @@
 	.unlock-msg {
 		padding: 0 20px;
 		margin-top: -20px;
+		clear: both;
+	}
+
+	#wpforms-admin-addons-search {
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		box-shadow: none;
+		color: #333;
+		vertical-align: middle;
+		padding: 7px 12px;
+		margin: -3px 10px 0 0;
+		width: 200px;
+		min-height: 35px;
+		float: right;
+
+		&:focus {
+			border-color: #bbb;
+		}
 	}
 
 	.addon-container {

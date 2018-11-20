@@ -1,0 +1,64 @@
+<?php
+/**
+ * Content Download Form template.
+ *
+ * @package    WPFormsFormTemplates
+ * @author     WPForms
+ * @since      1.0.0
+ * @license    GPL-2.0+
+ * @copyright  Copyright (c) 2017, WPForms LLC
+ */
+class WPForms_Template_Content_Download extends WPForms_Template {
+
+	/**
+	 * Primary class constructor.
+	 *
+	 * @since 1.0.0
+	 */
+	public function init() {
+
+		$this->name = __( 'Content Download Form', 'wpforms-form-templates-pack' );
+		$this->slug = 'content-download';
+		$this->data = array(
+			'field_id' => 5,
+			'fields' => array(
+				1 => array(
+					'id' => '1',
+					'type' => 'name',
+					'label' => __( 'Name', 'wpforms-form-templates-pack' ),
+					'format' => 'first-last',
+					'required' => '1',
+					'size' => 'medium',
+				),
+				2 => array(
+					'id' => '2',
+					'type' => 'email',
+					'label' => __( 'Business Email', 'wpforms-form-templates-pack' ),
+					'required' => '1',
+					'size' => 'medium',
+				),
+				3 => array(
+					'id' => '3',
+					'type' => 'text',
+					'label' => __( 'Company', 'wpforms-form-templates-pack' ),
+					'size' => 'medium',
+				),
+				4 => array(
+					'id' => '4',
+					'type' => 'textarea',
+					'label' => __( 'Please tell us here if you have any other questions, and we\'ll be in touch shortly.', 'wpforms-form-templates-pack' ),
+					'size' => 'medium',
+				),
+			),
+			'settings' => array(
+				'honeypot' => '1',
+				'confirmation_message_scroll' => '1',
+				'submit_text_processing' => __( 'Sending...', 'wpforms-form-templates-pack' ),
+			),
+			'meta' => array(
+				'template' => $this->slug,
+			),
+		);
+	}
+}
+new WPForms_Template_Content_Download;

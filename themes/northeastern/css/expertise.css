@@ -1,0 +1,167 @@
+/**
+ * modules/variables
+ * ---
+ */
+/**
+ * Typography
+ */
+/**
+ * Colors
+ */
+/**
+ * modules/mixins
+ * ---
+ */
+/**
+ * modules/fonts
+ * ---
+ * Declare fonts here
+ */
+/* lato-100 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: url("../.fonts/lato-v14-latin-100.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Hairline"), local("Lato-Hairline"), url("../.fonts/lato-v14-latin-100.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-100.woff2") format("woff2"), url("../.fonts/lato-v14-latin-100.woff") format("woff"), url("../.fonts/lato-v14-latin-100.ttf") format("truetype"), url("../.fonts/lato-v14-latin-100.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-100italic - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 100;
+  src: url("../.fonts/lato-v14-latin-100italic.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Hairline Italic"), local("Lato-HairlineItalic"), url("../.fonts/lato-v14-latin-100italic.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-100italic.woff2") format("woff2"), url("../.fonts/lato-v14-latin-100italic.woff") format("woff"), url("../.fonts/lato-v14-latin-100italic.ttf") format("truetype"), url("../.fonts/lato-v14-latin-100italic.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-300 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../.fonts/lato-v14-latin-300.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Light"), local("Lato-Light"), url("../.fonts/lato-v14-latin-300.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-300.woff2") format("woff2"), url("../.fonts/lato-v14-latin-300.woff") format("woff"), url("../.fonts/lato-v14-latin-300.ttf") format("truetype"), url("../.fonts/lato-v14-latin-300.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-300italic - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../.fonts/lato-v14-latin-300italic.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Light Italic"), local("Lato-LightItalic"), url("../.fonts/lato-v14-latin-300italic.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-300italic.woff2") format("woff2"), url("../.fonts/lato-v14-latin-300italic.woff") format("woff"), url("../.fonts/lato-v14-latin-300italic.ttf") format("truetype"), url("../.fonts/lato-v14-latin-300italic.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../.fonts/lato-v14-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Regular"), local("Lato-Regular"), url("../.fonts/lato-v14-latin-regular.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-regular.woff2") format("woff2"), url("../.fonts/lato-v14-latin-regular.woff") format("woff"), url("../.fonts/lato-v14-latin-regular.ttf") format("truetype"), url("../.fonts/lato-v14-latin-regular.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-italic - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../.fonts/lato-v14-latin-italic.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Italic"), local("Lato-Italic"), url("../.fonts/lato-v14-latin-italic.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-italic.woff2") format("woff2"), url("../.fonts/lato-v14-latin-italic.woff") format("woff"), url("../.fonts/lato-v14-latin-italic.ttf") format("truetype"), url("../.fonts/lato-v14-latin-italic.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../.fonts/lato-v14-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Bold"), local("Lato-Bold"), url("../.fonts/lato-v14-latin-700.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-700.woff2") format("woff2"), url("../.fonts/lato-v14-latin-700.woff") format("woff"), url("../.fonts/lato-v14-latin-700.ttf") format("truetype"), url("../.fonts/lato-v14-latin-700.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-700italic - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: url("../.fonts/lato-v14-latin-700italic.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url("../.fonts/lato-v14-latin-700italic.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-700italic.woff2") format("woff2"), url("../.fonts/lato-v14-latin-700italic.woff") format("woff"), url("../.fonts/lato-v14-latin-700italic.ttf") format("truetype"), url("../.fonts/lato-v14-latin-700italic.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-900 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../.fonts/lato-v14-latin-900.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Black"), local("Lato-Black"), url("../.fonts/lato-v14-latin-900.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-900.woff2") format("woff2"), url("../.fonts/lato-v14-latin-900.woff") format("woff"), url("../.fonts/lato-v14-latin-900.ttf") format("truetype"), url("../.fonts/lato-v14-latin-900.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-900italic - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+  src: url("../.fonts/lato-v14-latin-900italic.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Black Italic"), local("Lato-BlackItalic"), url("../.fonts/lato-v14-latin-900italic.eot?#iefix") format("embedded-opentype"), url("../.fonts/lato-v14-latin-900italic.woff2") format("woff2"), url("../.fonts/lato-v14-latin-900italic.woff") format("woff"), url("../.fonts/lato-v14-latin-900italic.ttf") format("truetype"), url("../.fonts/lato-v14-latin-900italic.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+body.expertise main {
+  margin: 124px 0 0 0; }
+  body.expertise main section.teams {
+    width: 80vw; }
+    body.expertise main section.teams > article {
+      margin: 0 0 30px 0; }
+      body.expertise main section.teams > article > a {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%; }
+        body.expertise main section.teams > article > a:hover > div.copy > span, body.expertise main section.teams > article > a:focus > div.copy > span {
+          color: #cc0000; }
+        body.expertise main section.teams > article > a:hover > div.image > div > img, body.expertise main section.teams > article > a:focus > div.image > div > img {
+          transform: scale(1.2);
+          transition: all .5s; }
+        body.expertise main section.teams > article > a > div {
+          flex-grow: 1;
+          width: 50%;
+          min-height: 400px; }
+          body.expertise main section.teams > article > a > div.copy {
+            width: 30%;
+            order: 1; }
+          body.expertise main section.teams > article > a > div.image {
+            order: 2;
+            margin: 0 0 0 30px; }
+            body.expertise main section.teams > article > a > div.image > div {
+              background: black;
+              overflow: hidden;
+              position: relative;
+              width: 100%;
+              height: 100%; }
+              body.expertise main section.teams > article > a > div.image > div > img {
+                position: absolute;
+                top: -9999px;
+                right: -9999px;
+                bottom: -9999px;
+                left: -9999px;
+                margin: auto;
+                min-width: 100%;
+                min-height: 100%;
+                transform: scale(1);
+                transition: all .5s; }
+      body.expertise main section.teams > article:nth-child(even) > a > div.copy {
+        order: 2; }
+      body.expertise main section.teams > article:nth-child(even) > a > div.image {
+        order: 1;
+        margin: 0 30px 0 0; }

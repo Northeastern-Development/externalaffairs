@@ -1,0 +1,95 @@
+/**
+ * partials/page
+ * ---
+ */
+
+
+main{
+  width: 100%;
+  margin: (nth($header-height,2) + $globalnav-height) 0 0 0;
+  flex: 1 0 auto;
+  & > section{
+    width: nth($content-width,3);
+    margin: 0 auto nth($gutter,1) auto;
+    // & h3{
+    //   @include font-5l-c;
+    //   padding: nth($gutter,1) 0 0 0;
+    // }
+    &.fullwidth{
+      width: 100%;
+      margin: 0 0 nth($gutter,1) 0;
+    }
+    & > article{
+      & > table{
+        & tr{
+          & td{
+            &:first-child{
+              padding: 0 nth($gutter,1) 0 0;
+              margin: 0 0 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & > section.hero{
+    position: relative;
+    background: rgba($brand_colors-black,1.0);
+    min-height: 200px;
+    padding: (nth($gutter,1) * 2) 0 (nth($gutter,1) * 2) 0;
+    & > h1,
+    & > p{
+      color: rgba($brand_colors-white,1.0);
+      text-align: center;
+      width: 50%;
+      margin: 0 auto 0 auto;
+    }
+    & > h1{
+      margin: 0 auto nth($gutter,3) auto;
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 960px){
+    & > section{
+      & > article{
+        & > table{
+          & tr{
+            & td{
+              width: 100% !important;
+              display: block;
+              &:first-child{
+                padding: 0 0 0 0;
+                margin: 0 0 nth($gutter,2) 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 600px){
+    margin: (nth($header-height,2) + $globalnav-height + nth($gutter,2)) 0 nth($gutter,2) 0;
+    & > section{
+      width: auto;
+      margin: 0 nth($gutter,3) nth($gutter,2) nth($gutter,3);
+      &.fullwidth{
+        margin: 0 0 nth($gutter,2) 0;
+      }
+    }
+  }
+
+
+
+
+
+}

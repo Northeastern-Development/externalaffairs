@@ -14,6 +14,7 @@ $breakpoints: (
 );
 
 @import 'admin/buttons';
+@import 'admin/confirm';
 @import 'admin/alerts';
 @import 'admin/flags';
 @import 'admin/header';
@@ -25,3 +26,4 @@ $breakpoints: (
 @import 'admin/page-welcome';
 @import 'admin/page-addons';
 @import 'admin/page-settings-tools';
+@import 'admin/page-settings-integrations';

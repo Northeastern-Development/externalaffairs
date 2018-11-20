@@ -1,0 +1,79 @@
+/**
+ * partials/nav
+ * ---
+ * Menus
+ */
+
+nav.mainnav{
+  position: absolute;
+  right: 0;
+  top: (nth($header-height,2) - (nth($gutter,2) * 2));
+  & > div.mobilenav{
+    display: none;
+    float: right;
+    width: auto;
+    background: red;
+  }
+  & ul{
+    list-style: none;
+    list-style-type: none;
+    & > li{
+      display: inline-block;
+      margin: 0 0 0 nth($gutter,1);
+      &:first-child{
+        margin: 0 0 0 0;
+      }
+      & > a{
+        color: rgba($brand_colors-white,0.6);
+        @include font-2r-l;
+        &:hover,
+        &:focus{
+          color: rgba($brand_colors-white,1.0);
+        }
+      }
+      &.current_page_item{
+        & > a{
+          color: rgba($brand_colors-white,1.0);
+        }
+      }
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 1080px){
+    & > div.mobilenav{
+      display: block;
+    }
+
+    & ul{
+      clear: both;
+      background: rgba($brand_colors-black,1.0);
+      & > li{
+        display: block;
+        margin: 0 0 0 0;
+        padding: 0 nth($gutter,1) 0 nth($gutter,1);
+      }
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 600px){
+    right: nth($gutter,3);
+    & ul{
+      & > li{
+        margin: 0 0 0 nth($gutter,3);
+      }
+    }
+  }
+
+
+
+
+
+}

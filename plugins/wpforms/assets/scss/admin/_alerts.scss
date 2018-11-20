@@ -1,91 +1,54 @@
 // Alert styles.
-// Styling tweaks for jQuery-confirm JS alert library.
-body {
+.wpforms-admin-page {
 
-	div.jconfirm {
+	.wpforms-alert {
+		padding: 16px;
+		margin-bottom: 18px;
+		border: 1px solid transparent;
 
-		*,
-		*::before,
-		*::after {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
+		h4 {
+			margin-top: 0;
+			color: inherit;
 		}
 
-		div.jconfirm-box-container div.jconfirm-box {
-			border-radius: 0;
-			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-		}
+		p {
+			margin: 0 0 15px 0;
 
-		div.jconfirm-box {
-
-			div.jconfirm-content-pane {
-				margin-bottom: 20px;
-				display: block;
-			}
-
-			div.jconfirm-content {
-				font-size: 16px;
-				color: #555;
-				line-height: 1.5;
-
-				p {
-					margin: 0 0 16px;
-					font-size: 16px;
-				}
-			}
-
-			input[type=text] {
-				display: block;
-				width: 99%;
-				border: 1px solid #d6d6d6;
-				padding: 10px;
-				box-shadow: none;
-				margin: 20px auto 0 auto;
-			}
-
-			#wpforms-embed-shortcode {
-				margin: 20px 0;
-				text-align: center;
-				font-size: 24px;
-				padding: 8px 5px;
-			}
-
-			#wpforms-embed-shortcode:disabled {
-				color: #333;
-			}
-
-			button.btn-confirm {
-				background-color: #83c11f;
-				color: #fff;
-				outline: none;
-			}
-
-			button.btn-confirm:hover {
-				background-color: #75ac1c;
-			}
-
-			.error {
-				display: none;
-				color: red;
-			}
-
-			.jconfirm-title-c .jconfirm-icon-c {
-				-webkit-transition: none !important;
-				transition: none !important;
-				-webkit-transform: none !important;
-				-ms-transform: none !important;
-				transform: none !important;
-				font-size: 45px !important;
+			&:last-of-type {
+				margin: 0;
 			}
 		}
-	}
 
-	.choices {
-		text-align: left;
+		&.wpforms-alert-nomargin {
+			margin: 0;
+		}
 
-		input[type=text].choices__input {
-			display: inline-block !important;
+		&.wpforms-alert-small {
+			font-size: 12px;
+		}
+
+		&.wpforms-alert-success {
+			background-color: #dff0d8;
+			border-color: #d6e9c6;
+			color: #3c763d;
+		}
+
+		&.wpforms-alert-info {
+			background-color: #d9edf7;
+			border-color: #bce8f1;
+			color: #31708f;
+		}
+
+		&.wpforms-alert-warning {
+			background-color: #fcf8e3;
+			border-color: #faebcc;
+			color: #8a6d3b;
+		}
+
+		&.wpforms-alert-danger {
+			background-color: #f2dede;
+			border-color: #ebccd1;
+			color: #a94442;
 		}
 	}
 }

@@ -3,11 +3,10 @@
  * Base class for displaying a list of items in an ajaxified HTML table.
  * Copied from wp-admin/includes as per http://codex.wordpress.org/Class_Reference/WP_List_Table
  *
- * @since 5.0.0
- * @access private
- *
  * @package WordPress
  * @subpackage MPSUM_List_Table
+ * @since 5.0.0
+ * @access private
  */
 class MPSUM_List_Table {
 
@@ -97,7 +96,7 @@ class MPSUM_List_Table {
 	 * @access public
 	 *
 	 * @param array|string $args {
-	 *     Array or string of arguments.
+	 *                           Array or string of arguments.
 	 *
 	 *     @type string $plural   Plural value used for labels and the objects being listed.
 	 *                            This affects things such as CSS class-names and nonces used
@@ -120,6 +119,10 @@ class MPSUM_List_Table {
 			'ajax' => false,
 			'screen' => null,
 		) );
+
+		if (!function_exists('convert_to_screen')) {
+			include_once ABSPATH . "wp-admin/includes/template.php";
+        }
 
 		$this->screen = convert_to_screen( $args['screen'] );
 
@@ -236,6 +239,7 @@ class MPSUM_List_Table {
 
 	/**
 	 * Prepares the list of items for displaying.
+     *
 	 * @uses WP_List_Table::set_pagination_args()
 	 *
 	 * @since 3.1.0
@@ -249,10 +253,8 @@ class MPSUM_List_Table {
 	/**
 	 * An internal method that sets all the necessary pagination arguments
 	 *
-	 * @param array $args An associative array with information about the pagination
 	 * @access protected
-	 *
-	 * @param array|string $args
+	 * @param array $args An associative array with information about the pagination
 	 */
 	protected function set_pagination_args( $args ) {
 		$args = wp_parse_args( $args, array(
@@ -319,7 +321,7 @@ class MPSUM_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 *
-	 * @param string $text The search button text
+	 * @param string $text     The search button text
 	 * @param string $input_id The search input id
 	 */
 	public function search_box( $text, $input_id ) {
@@ -479,8 +481,8 @@ class MPSUM_List_Table {
 	 * @since 3.1.0
 	 * @access protected
 	 *
-	 * @param array $actions The list of actions
-	 * @param bool $always_visible Whether the actions should be always visible
+	 * @param array $actions        The list of actions
+	 * @param bool  $always_visible Whether the actions should be always visible
 	 * @return string
 	 */
 	protected function row_actions( $actions, $always_visible = false ) {
@@ -508,11 +510,9 @@ class MPSUM_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access protected
-	 *
 	 * @global wpdb      $wpdb
 	 * @global WP_Locale $wp_locale
-	 *
-	 * @param string $post_type
+	 * @param string $post_type months dropdown post type
 	 */
 	protected function months_dropdown( $post_type ) {
 		global $wpdb, $wp_locale;
@@ -540,7 +540,6 @@ class MPSUM_List_Table {
 		 * Filter the 'Months' drop-down results.
 		 *
 		 * @since 3.7.0
-		 *
 		 * @param object $months    The months drop-down query results.
 		 * @param string $post_type The post type.
 		 */
@@ -581,8 +580,7 @@ class MPSUM_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access protected
-	 *
-	 * @param string $current_mode
+	 * @param string $current_mode Check if it is the current mode
 	 */
 	protected function view_switcher( $current_mode ) {
 ?>
@@ -674,9 +672,8 @@ class MPSUM_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access protected
-	 *
-	 * @param string $option
-	 * @param int    $default
+	 * @param string $option  options for items per page
+	 * @param int    $default Default items per page is 20
 	 * @return int
 	 */
 	protected function get_items_per_page( $option, $default = 20 ) {
@@ -706,7 +703,7 @@ class MPSUM_List_Table {
 	 * @since 3.1.0
 	 * @access protected
 	 *
-	 * @param string $which
+	 * @param string $which Which extra table nav to use
 	 */
 	protected function pagination( $which ) {
 		if ( empty( $this->_pagination_args ) ) {
@@ -715,14 +712,16 @@ class MPSUM_List_Table {
 
 		$total_items = $this->_pagination_args['total_items'];
 		$total_pages = $this->_pagination_args['total_pages'];
+		$tab = $this->_pagination_args['tab'];
+		$view = $this->_pagination_args['view'];
+		$current = $this->_pagination_args['paged'];
+
 		$infinite_scroll = false;
 		if ( isset( $this->_pagination_args['infinite_scroll'] ) ) {
 			$infinite_scroll = $this->_pagination_args['infinite_scroll'];
 		}
 
 		$output = '<span class="displaying-num">' . sprintf( _n( '%s item', '%s items', $total_items ), number_format_i18n( $total_items ) ) . '</span>';
-
-		$current = $this->get_pagenum();
 
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 
@@ -742,7 +741,7 @@ class MPSUM_List_Table {
 		if ( $current == 2 ) {
 			$disable_first = true;
 		}
- 		if ( $current == $total_pages ) {
+ 		if ( $current == $total_pages || 0 == $total_items ) {
 			$disable_last = true;
 			$disable_next = true;
  		}
@@ -754,7 +753,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&laquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='first-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( remove_query_arg( 'paged', $current_url ) ),
+				esc_url(add_query_arg(array('tab' => $tab, 'view' => $view, 'paged' => 1), $current_url)),
 				__( 'First page' ),
 				'&laquo;'
 			);
@@ -764,7 +763,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&lsaquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='prev-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', max( 1, $current-1 ), $current_url ) ),
+				esc_url(add_query_arg(array('paged' => max(1, $current-1), 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Previous page' ),
 				'&lsaquo;'
 			);
@@ -774,20 +773,26 @@ class MPSUM_List_Table {
 			$html_current_page  = $current;
 			$total_pages_before = '<span class="screen-reader-text">' . __( 'Current Page' ) . '</span><span id="table-paging" class="paging-input">';
 		} else {
-			$html_current_page = sprintf( "%s<input class='current-page' id='current-page-selector' type='text' name='paged' value='%s' size='%d' aria-describedby='table-paging' />",
+			$html_current_page = sprintf("%s<input class='current-page' id='current-page-selector' type='text' name='paged' value='%s' size='%d' aria-describedby='table-paging' data-tab='%s' data-view='%s' />",
 				'<label for="current-page-selector" class="screen-reader-text">' . __( 'Current Page' ) . '</label>',
 				$current,
-				strlen( $total_pages )
+				strlen($total_pages),
+                $tab,
+                $view
 			);
 		}
 		$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+ 		if (0 == $total_items) {
+		    $html_current_page = 0;
+		    $html_total_pages = 0;
+        }
 		$page_links[] = $total_pages_before . sprintf( _x( '%1$s of %2$s', 'paging' ), $html_current_page, $html_total_pages ) . $total_pages_after;
 
 		if ( $disable_next ) {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&rsaquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='next-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', min( $total_pages, $current+1 ), $current_url ) ),
+				esc_url(add_query_arg(array('paged' => min($total_pages, $current+1), 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Next page' ),
 				'&rsaquo;'
 			);
@@ -797,7 +802,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&raquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='last-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+				esc_url(add_query_arg(array('paged' => $total_pages, 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Last page' ),
 				'&raquo;'
 			);
@@ -827,7 +832,7 @@ class MPSUM_List_Table {
 	 * @access public
 	 * @abstract
 	 *
-	 * @return array
+	 * @return void
 	 */
 	public function get_columns() {
 		die( 'function WP_List_Table::get_columns() must be over-ridden in a sub-class.' );
@@ -931,6 +936,10 @@ class MPSUM_List_Table {
 
 			return $column_headers;
 		}
+
+        if (!function_exists('get_column_headers')) {
+	        include_once ABSPATH . "wp-admin/includes/screen.php";
+        }
 
 		$columns = get_column_headers( $this->screen );
 		$hidden = get_hidden_columns( $this->screen );
@@ -1109,7 +1118,7 @@ class MPSUM_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access protected
-	 * @param string $which
+	 * @param string $which Which extra table nav to use
 	 */
 	protected function display_tablenav( $which ) {
 		if ( 'top' == $which )
@@ -1135,8 +1144,7 @@ class MPSUM_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access protected
-	 *
-	 * @param string $which
+	 * @param string $which Which extra table nav to use
 	 */
 	protected function extra_tablenav( $which ) {}
 
@@ -1182,15 +1190,17 @@ class MPSUM_List_Table {
 	}
 
 	/**
+	 * Column default
 	 *
-	 * @param object $item
-	 * @param string $column_name
+	 * @param object $item        The current item
+	 * @param string $column_name Column name
 	 */
 	protected function column_default( $item, $column_name ) {}
 
 	/**
+	 * Column CB
 	 *
-	 * @param object $item
+	 * @param object $item The current item
 	 */
 	protected function column_cb( $item ) {}
 

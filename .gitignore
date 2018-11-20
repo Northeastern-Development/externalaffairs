@@ -8,7 +8,8 @@
 /*
 
 
-# don't ignore the following specific files/folders!.gitignore
+# don't ignore the following specific files/folders
+!.gitignore
 
 
 # don't ignore the plugins directories
@@ -16,5 +17,5 @@
 !mu-plugins/
 
 
-# Ignore everything in the "themes" directory, except our custom theme
-!themes/nudev/
+# Ignore everything in the "themes" directory, EXCEPT our custom theme
+!themes/northeastern/

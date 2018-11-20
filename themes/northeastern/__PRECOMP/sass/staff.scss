@@ -1,0 +1,97 @@
+// Modules
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/fonts";
+
+
+body.our-staff{
+
+
+
+
+
+  & main{
+    margin: (nth($header-height,2) + $globalnav-height) 0 0 0;
+
+    & > section.filternav{
+      margin: (nth($gutter,1) * 2) auto (nth($gutter,1) * 2) auto;
+      & > ul{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        list-style-type: none;
+        border-bottom: solid rgba($brand_colors-grayW,1.0) 1px;
+        & > li{
+          flex-grow: 1;
+          text-align: center;
+          margin: 0 nth($gutter,3) 0 0;
+          &:last-child{
+            margin: 0 0 0 0;
+          }
+          & > a{
+            display: block;
+            padding: 0 0 nth($gutter,3) 0;
+            border-bottom: solid rgba($brand_colors-white,1.0) 3px;
+            &.active,
+            &:hover,
+            &:focus{
+              border-bottom: solid rgba($brand_colors-red,1.0) 3px;
+              color: rgba($brand_colors-red,1.0);
+            }
+          }
+        }
+      }
+    }
+
+    section.staff{
+
+      $columns: 6;
+      $spacing: 2vw;
+      $width: nth($content-width,1);
+
+      $colWidth: (( $width - (($columns - 1) * $spacing) ) / $columns);
+
+      width: $width;
+      & > ul{
+        list-style: none;
+        list-style-type: none;
+        clear: both;
+        & > li{
+          float: left;
+          min-height: 400px;
+          width: $colWidth;
+          overflow: hidden;
+          margin: 0 2vw nth($gutter,1) 0;
+          &:nth-child(#{$columns}n){
+            margin: 0 0 nth($gutter,1) 0;
+          }
+          & > div{
+            width: 100%;
+            height: $colWidth;
+            max-height: 275px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 0 nth($gutter,3) 0;
+            & > img{
+              position: absolute;
+              top: -9999px;
+              right: -9999px;
+              bottom: -9999px;
+              left: -9999px;
+              margin: auto;
+              min-width: 100%;
+              min-height: 100%;
+              // transform: scale(1.0);
+              // transition: all .5s;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+
+}
