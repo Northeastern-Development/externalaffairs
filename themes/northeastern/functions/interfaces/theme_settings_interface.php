@@ -26,6 +26,11 @@
     </select><br />
     <br />
     <hr />
+    <h3>GeoTag</h3>
+    <p>Specify the location (city, state, and zip) for this site.  If no values are entered it will use the location of the main Boston campus.</p>
+    <label for="">City</label><input name="" id="" /><br />
+    <br />
+    <hr />
     <p>Click the button below to save your changes.</p>
     <?php submit_button(); ?>
     <hr />
